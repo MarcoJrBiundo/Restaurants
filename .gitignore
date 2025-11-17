@@ -1,6 +1,9 @@
 # Ignore build outputs
 **/bin/
 **/obj/
+**/publish/
+**/out/
+artifacts/
 
 # Ignore user-specific files
 *.user
@@ -13,7 +16,26 @@
 
 # Ignore database files
 Restaurants.API/restaurants.db*
+*.mdf
+*.ldf
 
+# Ignore environment/secrets
+.env
+.env.*
+.envrc
+*.local
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Ignore test/coverage
+TestResults/
+*.coverage
+*.coveragexml
+coverage/
+.nyc_output/
 
 # Ignore generated files
 **/*.GeneratedMSBuildEditorConfig.editorconfig
@@ -30,12 +52,8 @@ Restaurants.API/restaurants.db*
 **/*.Up2Date
 **/*.deps.json
 **/*.runtimeconfig.json
-**/*.dll
-**/*.pdb
-**/*.exe
 **/*.cache
 **/*.json.cache
-**/*.endpoints.json
 **/*.build.json
 **/*.build.json.cache
 **/*.staticwebassets.*
@@ -57,3 +75,29 @@ Restaurants.API/restaurants.db*
 
 # Ignore SQLite native assets
 **/runtimes/*/native/*e_sqlite3.*
+
+# OS-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE/editor settings
+.vs/
+.vscode/
+.idea/
+*.code-workspace
+
+# Front-end/package managers
+node_modules/
+dist/
+build/
+
+# NuGet/Packaging (project-local)
+packages/
+!packages/build/
+*.nupkg
