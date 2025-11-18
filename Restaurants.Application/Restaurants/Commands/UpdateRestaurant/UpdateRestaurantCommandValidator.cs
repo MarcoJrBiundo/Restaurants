@@ -9,17 +9,8 @@ public class UpdateRestaurantCommandValidator :AbstractValidator<UpdateRestauran
 { 
     public UpdateRestaurantCommandValidator()
     {
-        RuleFor(dto => dto.Name)
-            .NotEmpty()
+        RuleFor(x => x.Name)
             .Length(3, 100);
 
-        RuleFor(dto => dto.Description)
-            .NotEmpty().WithMessage("Description is required.");
-
-        RuleFor(dto => dto.Category)
-             .NotEmpty().WithMessage("Category is required.");
-
-        RuleFor(dto => dto.ContactEmail)
-            .EmailAddress().WithMessage("A valid email is required.");
     }
 }

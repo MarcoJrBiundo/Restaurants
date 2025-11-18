@@ -61,14 +61,12 @@ namespace Restaurants.API.Controllers
         [HttpPatch("{id:int}", Name = "UpdateRestaurantById")]
         public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, [FromBody] UpdateRestaurantCommand updateRestaurantCommand)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-                
             updateRestaurantCommand.Id = id;
             var isUpdated = await mediator.Send(updateRestaurantCommand);
-            if (isUpdated is false)
-                throw new Exception("Error updating restaurant, Restaurant with ID {Id} not found.".Replace("{Id}", id.ToString()));
-            return Ok("Successfully updated restaurant with ID {Id}.".Replace("{Id}", id.ToString()));
+            if (isUpdated)
+                return NoContent();
+
+            return BadRequest("Failed to update restaurant with ID {Id}.".Replace("{Id}", id.ToString()));
         }
 
     }

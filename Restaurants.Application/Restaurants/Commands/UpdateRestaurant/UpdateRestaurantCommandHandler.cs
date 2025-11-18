@@ -19,7 +19,7 @@ public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandl
           return false;
         }
         mapper.Map(request, restaurant);
-        await restaurantsRepository.UpdateAsync(restaurant);
+        await restaurantsRepository.SaveChanges();
         logger.LogInformation("Successfully updated restaurant with ID {Id}", restaurant.Id);
         return true;
 
